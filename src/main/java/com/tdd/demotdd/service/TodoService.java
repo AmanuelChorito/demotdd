@@ -46,12 +46,19 @@ public class TodoService {
     }
 
     public TodoItem save(TodoItem todoItem1) throws IOException {
-        jsonFileReader.writetoJson(todoItem1);
 
         return todoRepository.save(todoItem1);
     }
 
     public TodoItem updateTodos(TodoItem todoItem1) {
             return null;
+    }
+
+    public List<TodoItem> getJson() throws IOException {
+       return jsonFileReader.getJsonFile();
+    }
+
+    public void setJson(TodoItem todoItem1) throws IOException {
+          jsonFileReader.writetoJson(todoItem1);
     }
 }

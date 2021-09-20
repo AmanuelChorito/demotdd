@@ -24,6 +24,11 @@ public class TodoController {
         this.todoService = todoService;
     }
 
+    @GetMapping("/json")
+    ResponseEntity<List<TodoItem>>getAllJson() throws IOException {
+        return new ResponseEntity<>(todoService.getJson(),HttpStatus.OK);
+    }
+
     @GetMapping("/todos")
     ResponseEntity<Map<String,Object>>getAllTodo(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "1") int size){
 
